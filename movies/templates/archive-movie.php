@@ -10,7 +10,7 @@
             $selectedOption = $_GET['genre-id'];            
         }
         
-        $terms = getMoviesGenres();
+        $terms = movies_get_genres();
         $o = '';
         foreach($terms as $tag) {
             $selectedAttr = $tag->term_id == $selectedOption ? 'selected' : '';

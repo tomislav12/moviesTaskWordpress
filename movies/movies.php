@@ -134,14 +134,7 @@ function movies_load_scripts() {
  * Activate the plugin.
  */
 function movies_activate() { 
-    //add_theme_support('post-thumbnails');
-    //set_post_thumbnail_size( 1280, 720 );
-
-	//movies_setup_post_type_movie();
-    //movies_setup_taxonomy_genre();
-
-	// Clear the permalinks after the post type has been registered.
-	//flush_rewrite_rules(); 
+    // Plugin activation code goes here
 }
 register_activation_hook( __FILE__, 'movies_activate' );
 
@@ -156,6 +149,18 @@ function movies_deactivate() {
 	flush_rewrite_rules();
 }
 register_deactivation_hook( __FILE__, 'movies_deactivate' );
+
+/**
+ * Uninstall hook
+ */
+function movies_uninstall_plugin() {
+	// Delete movies CPT records and genre taxonomy with its terms -
+	//	TODO - enable on production with ENV_VARS or similar config
+}
+register_uninstall_hook(
+	__FILE__,
+	'movies_uninstall_plugin'
+);
 
 function movies_add_rest_excerpt($response) {
 	$response->data['excerpt'] = movies_truncate(get_the_excerpt( get_the_ID() ), 150);
@@ -219,6 +224,6 @@ function movies_shortcode_run( $atts = array(), $content = null, $tag = '' ) {
 add_shortcode('movies', 'movies_shortcode_run');
 
 
-function getMoviesGenres() {
+function movies_get_genres() {
 	return get_terms(['taxonomy' => MOVIES_TAXONOMY_GENRE]);
 }

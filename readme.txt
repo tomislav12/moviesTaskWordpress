@@ -5,7 +5,7 @@ Movies is a combination of two plugins:
                 - custom 'genre' taxonomy
                 - rest api
                 - jsviews library (https://www.jsviews.com/) for observable filtering (ajax)
-                - movies shortcode
+                - movies list shortcode
                 - swiper.js responsive library example
 2. movie-fav-quotes-block - Gutenberg block Plugin made with react tools, features:
                 - only available for 'movies' CPT
@@ -20,6 +20,8 @@ Movies is a combination of two plugins:
 Visit movies from wordpress administration,
 enter a couple of movies (set their featured image and genres),
 and then visit www.yoursite.com/movies to see it in action
+
+Movies list shortcode example: [movies genre="fantasy" items=10][/movies]
 
 ## Contributing
 

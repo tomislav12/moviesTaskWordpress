@@ -41,7 +41,7 @@
                             return movie["_embedded"]["wp:featuredmedia"][0].source_url;
                         }
                     }
-                    return 'https://via.assets.so/img.jpg?w=300&h=300';
+                    return 'https://via.assets.so/img.jpg?w=183&h=275';
                 },                    
             }
         };
@@ -60,18 +60,14 @@
             loop: true,
             slidesPerView: 1,
             spaceBetween: 10,
-            breakpoints: {
-                640: {
-                    slidesPerView: 1,
-                    spaceBetween: 10,
-                },
+            breakpoints: {               
                 768: {
                     slidesPerView: 2,
-                    spaceBetween: 20,
+                    spaceBetween: 10,
                 },
                 1024: {
                     slidesPerView: 3,
-                    spaceBetween: 30,
+                    spaceBetween: 10,
                 },
             },
         });

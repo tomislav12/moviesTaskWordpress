@@ -5,8 +5,8 @@
  * Version: 1.0
  * Author: Tomislav Mihaljević
  * Author URI: https://www.logisoft.hr/
- * License: GPLv2
- * Requires Plugins: movie-fav-quotes-block
+ * License:           GPL-2.0-or-later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  */
 
  if ( ! defined( 'ABSPATH' ) ) {

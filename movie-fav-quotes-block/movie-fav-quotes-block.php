@@ -5,10 +5,11 @@
  * Requires at least: 6.6
  * Requires PHP:      7.2
  * Version:           0.1.0
- * Author:            The WordPress Contributors
+ * Author:            Tomislav Mihaljević
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       movie-fav-quotes-block
+ * Requires Plugins:  movies
  *
  * @package CreateBlock
  */

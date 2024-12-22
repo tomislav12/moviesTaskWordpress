@@ -18,22 +18,30 @@
         }        
     ?>
     <select class="movies-genre-picker">
-        <option value="0" >All genres</option>
+        <option value="0" ><?= __("All genres", MOVIES_PLUGIN_CONTEXT) ?></option>
         <?= $o ?>
     </select>
 
     <script id="movie-card-template" type="text/x-jsrender">
-        {^{for movies itemVar="~movie"}}
-            <a class="movies-card" data-id="{{:id}}" href="{{:link}}">
-                <div class="featured-image">
-                    <img src="{{:~movies.getFeaturedImage(~movie)}}" alt="{{:title.rendered}}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" width="257" height="388" sizes="auto, (max-width: 257px) 100vw, 257px" />
-                </div>
-                <div class="movies-container">
-                    <h4><b>{{:title.rendered}}</b></h4>
-                    <p>{{:excerpt}}</p>
-                </div>
-            </a>
-        {{/for}}
+        {^{if movies && movies.length}}
+            {^{for movies itemVar="~movie"}}
+                <a class="movies-card" data-id="{{:id}}" href="{{:link}}">
+                    <div class="featured-image">
+                        <img src="{{:~movies.getFeaturedImage(~movie)}}" alt="{{:title.rendered}}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" width="257" height="388" sizes="auto, (max-width: 257px) 100vw, 257px" />
+                    </div>
+                    <div class="movies-container">
+                        <h4><b>{{:title.rendered}}</b></h4>
+                        <p>{{:excerpt}}</p>
+                    </div>
+                </a>
+            {{/for}}
+        {{else}}
+            {^{if loadingData}}
+                <?= __("Loading", MOVIES_PLUGIN_CONTEXT) ?>...
+            {{else}}
+                <?= __("No movies.", MOVIES_PLUGIN_CONTEXT) ?>
+            {{/if}}
+        {{/if}}
     </script>
 
     <div class="movies-card-wrapper"></div>

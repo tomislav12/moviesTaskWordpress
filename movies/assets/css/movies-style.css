@@ -8,27 +8,37 @@
     margin-top: 24px;
 }
 
+.movies-card-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: normal;
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 300px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    margin-left: 24px;
+}
+
 .movies-card {
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
-    max-width: 300px;
-    height: 546.5px;
-    float: left;
-    margin: 15px;
+    width: 300px;
+    margin-right: 24px;
+    margin-bottom: 36px;
     text-decoration: none;
 }
 
-@media only screen and (max-width: 1024px) {
-    .movies-card {
-        max-width: 450px;
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+    .movies-card-wrapper {
+      flex-direction: column;
+      align-items: center;
     }
-}
-
-@media only screen and (max-width: 768px) {
     .movies-card {
-        max-width: 700px;
+        width: 95%;
     }
 }
 

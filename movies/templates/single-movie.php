@@ -4,7 +4,7 @@
 
 <div class="movies-wrapper">
 
-<a class="movies-navigation" href="/movies/"> All movies </a>
+<a class="movies-navigation" href="/movies/"> <?= __("All Movies", MOVIES_PLUGIN_CONTEXT) ?> </a>
 
 <h1> <?= get_the_title() ?> </h1>
 <div class="featured-image">
@@ -30,7 +30,7 @@ if($terms) {
         echo $terms_list . "<a href=\"" . esc_url( get_term_link( $term )) . "\">" . $term->name . "</a>";
         $terms_list = ", ";
     }
-} else echo "No genres.";
+} else echo __("No genres.", MOVIES_PLUGIN_CONTEXT);
 
 ?>
 
@@ -49,12 +49,6 @@ if($terms) {
             <div class="swiper-slide"><img src="https://picsum.photos/seed/sadfff/400"/></div>
             <!-- ... -->
         </div>
-        <!-- If you want pagination (bullets) -->
-        <!-- <div class="swiper-pagination"></div> -->
-        <!-- If you want navigation buttons
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-         -->
     </div>
 </section>
 

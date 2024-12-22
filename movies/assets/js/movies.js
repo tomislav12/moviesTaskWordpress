@@ -6,7 +6,7 @@
             
             let queryParamGenre = '';
             term_id == 0 ? queryParamGenre = '' : queryParamGenre = "genre=" + term_id;
-
+            $.observable(app).setProperty("loadingData", true);
             $.ajax({
                 type : "GET",
                 dataType : "JSON",
@@ -14,8 +14,9 @@
                 error: function(response, error) {
                     alert("Error occured while loading genres. Try again later.");
                 },
-                success : function(response) {
-                    $.observable(movies).refresh(response);          
+                success : function(response) {                    
+                    $.observable(movies).refresh(response);      
+                    $.observable(app).setProperty("loadingData", false);
                     // Change url
                     if(!initial) updateURL('genre-id', term_id);              
                 }
@@ -30,7 +31,8 @@
         
         let movies = [];
         var app = {
-            movies: movies
+            movies: movies,
+            loadingData: false,
         };
         var helpers = {
             movies: {

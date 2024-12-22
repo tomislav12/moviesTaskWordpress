@@ -1,6 +1,12 @@
 <?php
 /*
  * Plugin Name: Movies
+ * Description: Simple plugin for Movies
+ * Version: 1.0
+ * Author: Tomislav Mihaljević
+ * Author URI: https://www.logisoft.hr/
+ * License: GPLv2
+ * Requires Plugins: movie-fav-quotes-block
  */
 
  if ( ! defined( 'ABSPATH' ) ) {
@@ -133,8 +139,8 @@ function movies_load_scripts() {
 /**
  * Activate the plugin.
  */
-function movies_activate() { 
-    // Plugin activation code goes here
+function movies_activate() {
+	// movies_test_insert_few_movies();
 }
 register_activation_hook( __FILE__, 'movies_activate' );
 
@@ -154,8 +160,23 @@ register_deactivation_hook( __FILE__, 'movies_deactivate' );
  * Uninstall hook
  */
 function movies_uninstall_plugin() {
-	// Delete movies CPT records and genre taxonomy with its terms -
-	//	TODO - enable on production with ENV_VARS or similar config
+	global $wpdb;
+
+	// Delete the movie posts (if needed)
+	/*
+	$wpdb->query("
+	DELETE a,b,c
+    FROM wp_posts a
+    LEFT JOIN wp_term_relationships b
+        ON (a.ID = b.object_id)
+    LEFT JOIN wp_postmeta c
+        ON (a.ID = c.post_id)
+    WHERE a.post_type = '" . MOVIES_POSTTYPES_MOVIE . "'
+	");
+	*/
+
+	unregister_taxonomy( MOVIES_TAXONOMY_GENRE );
+	unregister_post_type( MOVIES_POSTTYPES_MOVIE );
 }
 register_uninstall_hook(
 	__FILE__,
